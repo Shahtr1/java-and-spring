@@ -1,0 +1,168 @@
+What are default methods?
+
+Static methods in interfaces?
+
+Difference between Abstract class and Interface
+
+What are Primitive Types?
+
+What are Wrapper Classes?
+
+What is Autoboxing?
+
+What is Unboxing?
+
+Explaing Equals Behaviour in Autoboxing and Unboxing?
+
+When to use Primitive types?
+
+When to use Wrapper Class?
+
+What are First-Class Functions?
+
+What is a First-Class Citizen?
+
+What are closures?
+
+What is Lambda Expression?
+
+Can we write Lambda Expression for every method?
+
+How many Functional Interfaces?
+
+What is Consumer Functional Interface?
+
+What is Predicate Functional Interface?
+
+What is Supplier Functional Interface?
+
+How can we create our own FunctionalInterface?
+
+Explain filter and forEach methods?
+
+How to sort a list using lambda?
+
+How to sort a map using lambda?
+
+Difference between map() and flatMap() method?
+
+Define Optional object?
+
+What is Map-Reduce?
+
+What is diamond problem?
+
+What is entry interface in Java?
+
+What is entrySet And KeySet in maps?
+
+What is Comparator and Comparable in Java?
+
+What is Java equals() and hashCode() Contract?
+
+What is Association, Aggregation and Composition?
+
+Why are companies still stuck with Java 8?
+
+Why are some Java versions, like 8 also called 1.8?
+
+What is the difference between a JRE and a JDK?
+
+Explain all Java Features 8-13?
+
+What is difference between ArrayList and LinkedList?
+
+What are Java Streams?
+
+What is a Thread?
+
+Life cycle of a Thread
+
+How to create a thread?
+
+What is Thread Scheduler in Java?
+
+What is Thread.sleep() in Java?
+
+Can we start a thread twice?
+
+What if we call Java run() method directly instead start() method?
+
+Java join() method?
+
+WHat is Java Shutdown Hook?
+
+Java Garbage Collection?
+
+Introduce Spring framework?
+
+What is Spring Bean?
+
+What is a Spring Container?
+
+How to create a Spring Container?
+
+What is Inversion Of Control?
+
+What is Dependency Injection?
+
+What are Bean Scopes?
+
+What is a Singleton?
+
+What are Additional Spring Bean Scopes?
+
+Define Bean Lifecycle?
+
+What are Bean Lifecycle Methods/Hooks?
+
+What are Java Annotations?
+
+What are AutoWiring Injection Types?
+
+AutoWiring FAQ: What if there are Multiple Implementations?
+
+How to inject properties file using Java annotations?
+
+What is Spring MVC Front Controller?
+
+What is Controller?
+
+What is Model?
+
+What is a View Template?
+
+What is @Controller annotation?
+
+What is Java EE?
+
+What is Jakarta EE?
+
+What are the changes with Jakarta EE in picture?
+
+What is the impact of Jakarta EE 9 on Hibernate Validator?
+
+Explaing MVC using JAVA configuration?
+
+What is @RestController?
+
+What is Cascade?
+
+What are Fetch Types: Eager vs Lazy Loading?
+
+What is an Entity Lifecycle?
+
+Define mappedBy?
+
+What are Java Servlets?
+
+What is a DAO?
+
+What are Checked and Uncheched Exceptions?
+
+What is so special about DAOs?
+
+What is the purpose of Service Layer?
+
+
+
