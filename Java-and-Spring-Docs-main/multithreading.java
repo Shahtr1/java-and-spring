@@ -2,31 +2,31 @@ Multithreading in Java is a process of executing multiple threads simultaneously
 
 Multitasking can be achieved in two ways:
 
-1.	Process-based Multitasking (Multiprocessing)
-	Each process has an address in memory. In other words, each process allocates a separate memory area.
-	Switching from one process to another requires some time for saving and loading registers, memory maps, updating lists, etc.
+1. Process-based Multitasking(Multiprocessing)Each process has an address in memory.In other words,each process allocates a separate memory area.Switching from one process to another requires some time for saving and loading registers,memory maps,updating lists,etc.
 
+2. Thread-based Multitasking(Multithreading)Threads share the same address space.A thread is lightweight.
 
-2.	Thread-based Multitasking (Multithreading)
-	Threads share the same address space.
-	A thread is lightweight.
+Q1->What is a Thread?A->A thread is a lightweight subprocess,the smallest unit of processing.It is a separate path of execution.
 
+Threads are independent.If there occurs exception in one thread,it doesnt ffect other threads. t uses a shared memory area.
 
-Q1 -> What is a Thread?
-A  -> A thread is a lightweight subprocess, the smallest unit of processing. It is a separate path of execution.
+Thread class extends Object
+class and implements Runnable interface.
 
-Threads are independent. If there occurs exception in one thread, it doesn't affect other threads. It uses a shared memory area.
+Q2->
+Life cycle
+of a
 
-Thread class extends Object class and implements Runnable interface.
-
-Q2 -> Life cycle of a Thread (Thread States)?
+Thread (Thread States)?
 A  -> In Java, a thread always exists in any one of the following states. These states are:
 
 	1.	New
 		Whenever a new thread is created, it is always in the new state. For a thread in the new state, the code has not been run yet and thus has not begun its execution.
 
 	2.  Active
-		When a thread invokes the start() method, it moves from the new state to the active state. 
+		When a thread invokes
+
+the start() method, it moves from the new state to the active state. 
 		The active state contains two states within it: one is runnable, and the other is running.
 		-	Runnable:
 			A thread, that is ready to run is then moved to the runnable state. 
@@ -44,10 +44,14 @@ A  -> In Java, a thread always exists in any one of the following states. These 
 
 
 	3.	Blocked / Waiting
-			Whenever a thread is inactive for a span of time (not permanently) then, either the thread is in the blocked state or is in the waiting state.
+			Whenever a thread is inactive for a span
+
+of time (not permanently) then, either the thread is in the blocked state or is in the waiting state.
 			we can say that thread A remains idle until the thread scheduler reactivates thread A, which is in the waiting or blocked state.
 
-			When the main thread invokes the join() method then, it is said that the main thread is in the waiting state. 
+			When the main thread invokes
+
+the join() method then, it is said that the main thread is in the waiting state. 
 			The main thread then waits for the child threads to complete their tasks. 
 			When the child threads complete their job, a notification is sent to the main thread, which again moves the thread from waiting to the active state.
 
@@ -57,7 +61,9 @@ A  -> In Java, a thread always exists in any one of the following states. These 
 
 	4.	Timed Waiting
 			Thus, thread lies in the waiting state for a specific span of time, and not forever. 
-			A real example of timed waiting is when we invoke the sleep() method on a specific thread. 
+			A real example of timed waiting is when we invoke
+
+the sleep() method on a specific thread. 
 			The sleep() method puts the thread in the timed wait state. After the time runs out, the thread wakes up and start its execution from when it has left earlier.
 
 
@@ -122,12 +128,24 @@ A  -> No. After starting a thread, it can never be started again.
 	If you does so, an IllegalThreadStateException is thrown. In such case, thread will run once but for second time, it will throw exception.
 
 
-Q7 -> What if we call Java run() method directly instead start() method?
-A  -> Each thread starts in a separate call stack.
-	Invoking the run() method from the main thread, the run() method goes onto the current call stack rather than at the beginning of a new call stack.
+Q7 -> What if we call
 
-Q8 -> Java join() method?
-A  -> The join() method in Java is provided by the java.lang.Thread class that permits one thread to wait until the other thread to finish its execution
+	Java run() method directly
+
+	instead start() method?
+A  -> Each thread starts in a separate call stack.
+	Invoking
+
+	the run() method from the main thread,
+
+	the run() method goes onto the current call stack rather than at the beginning of a new call stack.
+
+Q8 ->
+
+	Java join() method?
+A  ->
+
+	The join() method in Java is provided by the java.lang.Thread class that permits one thread to wait until the other thread to finish its execution
 	When the join() method is invoked, the current thread stops its execution and the thread goes into the wait state. 
 	The current thread remains in the wait state until the thread on which the join() method is invoked called is dead 
 	or the wait for the specified time frame(in milliseconds) is over.
