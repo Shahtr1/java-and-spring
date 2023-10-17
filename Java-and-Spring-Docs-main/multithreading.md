@@ -63,17 +63,17 @@ In Java, a thread always exists in any one of the following states. These states
 
 3.  #### Blocked / Waiting
 
-            Whenever a thread is inactive for a spanof time (not permanently) then, either the thread is in the blocked state or is in the waiting state.
+    Whenever a thread is inactive for a spanof time (not permanently) then, either the thread is in the blocked state or is in the waiting state.
 
-            We can say that thread A remains idle until the thread scheduler reactivates thread A, which is in the waiting or blocked state.
+    We can say that thread A remains idle until the thread scheduler reactivates thread A, which is in the waiting or blocked state.
 
-            When the main thread invokes the `join()` method then, it is said that the main thread is in the waiting state.
+    When the main thread invokes the `join()` method then, it is said that the main thread is in the waiting state.
 
-            The main thread then waits for the child threads to complete their tasks.
+    The main thread then waits for the child threads to complete their tasks.
 
-            When the child threads complete their job, a notification is sent to the main thread, which again moves the thread from waiting to the active state.
+    When the child threads complete their job, a notification is sent to the main thread, which again moves the thread from waiting to the active state.
 
-            If there are a lot of threads in the waiting or blocked state, then it is the duty of the thread scheduler to determine which thread to choose and which one to reject, and the chosen thread is then given the opportunity to run.
+    If there are a lot of threads in the waiting or blocked state, then it is the duty of the thread scheduler to determine which thread to choose and which one to reject, and the chosen thread is then given the opportunity to run.
 
 4.  #### Timed Waiting
 
