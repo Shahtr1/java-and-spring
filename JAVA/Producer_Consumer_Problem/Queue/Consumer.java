@@ -1,4 +1,4 @@
-package Producer_Consumer_Problem;
+package Producer_Consumer_Problem.Queue;
 
 public class Consumer implements Runnable {
     Data data;
@@ -11,7 +11,7 @@ public class Consumer implements Runnable {
     public void run() {
         try {
             while (true) {
-                Thread.sleep(2000);
+                Thread.sleep(500);
                 data.consume();
             }
         } catch (InterruptedException e) {

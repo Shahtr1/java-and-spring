@@ -8,3 +8,11 @@ The producer produces some items and pushes them into the memory buffer. A consu
 The memory buffer is of fixed size. If it is full, the producer waits for the consumer to consume an item before pushing a new one. The producer and consumer cannot access the buffer at the same time – that is, it's mutually exclusive. Each process should wait for the other to finish its work on the buffer before it can access the buffer.
 
 **Multithreading** is used to solve this problem
+
+While working on real-time applications, we probably won't implement synchronization manually.
+
+Instead of `Queue` we can use the `BlockingQueue` class from `java.util.concurrent` package.
+
+The difference between Queue and BlockingQueue is that it waits for the queue to become non-empty before a message can be consumed.
+
+Similarly, it waits for the queue to have space before publishing a new message.

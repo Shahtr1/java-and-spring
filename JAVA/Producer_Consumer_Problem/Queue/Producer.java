@@ -1,4 +1,4 @@
-package Producer_Consumer_Problem;
+package Producer_Consumer_Problem.Queue;
 
 public class Producer implements Runnable {
 

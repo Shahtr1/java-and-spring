@@ -1,4 +1,4 @@
-package Producer_Consumer_Problem;
+package Producer_Consumer_Problem.Queue;
 
 import java.util.*;
 
@@ -13,7 +13,7 @@ public class Data {
 
     public synchronized void publish(String msg) throws InterruptedException {
         String name = Thread.currentThread().getName();
-        if (q.size() == capacity) {
+        while (q.size() == capacity) {
             System.out.println("Queue Full!" + name + " waiting for message to be consumed...");
             wait();
         }
@@ -26,7 +26,7 @@ public class Data {
 
     public synchronized void consume() throws InterruptedException {
         String name = Thread.currentThread().getName();
-        if (q.size() == 0) {
+        while (q.size() == 0) {
             System.out.println(name + " waiting for new message...");
             wait();
         }
