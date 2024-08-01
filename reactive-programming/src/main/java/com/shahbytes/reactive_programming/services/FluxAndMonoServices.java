@@ -126,5 +126,97 @@ public class FluxAndMonoServices {
 
     }
 
+    // Concat -> sequential order
+    // Combine difference reactive streams
+    public Flux<String> fruitsFluxConcat() {
+        var fruits = Flux.just("Mango", "Orange");
+        var veggies = Flux.just("Tomato", "Lemon");
+
+        return Flux.concat(fruits, veggies).log();
+    }
+
+    // ConcatWith -> sequential order
+    // Combine difference reactive streams
+    public Flux<String> fruitsFluxConcatWith() {
+        var fruits = Flux.just("Mango", "Orange");
+        var veggies = Flux.just("Tomato", "Lemon");
+
+        return fruits.concatWith(veggies).log();
+    }
+
+    // ConcatWith Mono -> sequential order
+    // Combine difference reactive streams
+    public Flux<String> fruitsMonoConcatWith() {
+        var fruits = Mono.just("Mango");
+        var veggies = Mono.just("Tomato");
+
+        return fruits.concatWith(veggies).log();
+    }
+
+    // Merge -> will subscribe to the publishers eagerly and will be emitting asynchronously
+    public Flux<String> fruitsFluxMerge() {
+        var fruits = Flux.just("Mango", "Orange")
+                .delayElements(Duration.ofMillis(50));
+        var veggies = Flux.just("Tomato", "Lemon")
+                .delayElements(Duration.ofMillis(75));
+
+        return Flux.merge(fruits, veggies).log();
+    }
+
+    // MergeWith -> will subscribe to the publishers eagerly and will be emitting asynchronously
+    public Flux<String> fruitsFluxMergeWith() {
+        var fruits = Flux.just("Mango", "Orange")
+                .delayElements(Duration.ofMillis(50));
+        var veggies = Flux.just("Tomato", "Lemon")
+                .delayElements(Duration.ofMillis(75));
+
+        return fruits.mergeWith(veggies).log();
+    }
+
+    // MergeWithSequentialOrder -> will subscribe to the publishers eagerly and will be emitting in sequential order
+    public Flux<String> fruitsFluxMergeWithSequential() {
+        var fruits = Flux.just("Mango", "Orange")
+                .delayElements(Duration.ofMillis(50));
+        var veggies = Flux.just("Tomato", "Lemon")
+                .delayElements(Duration.ofMillis(75));
+
+        return Flux.mergeSequential(fruits, veggies).log();
+    }
+
+    // Different type of reactive type
+    // Zip -> upto 8 publishers
+    public Flux<String> fruitsFluxZip() {
+        var fruits = Flux.just("Mango", "Orange");
+        var veggies = Flux.just("Tomato", "Lemon");
+
+        return Flux.zip(fruits, veggies, (first, second) -> first + second).log();
+    }
+
+    // Different type of reactive type
+    // ZipWith -> upto 8 publishers
+    public Flux<String> fruitsFluxZipWith() {
+        var fruits = Flux.just("Mango", "Orange");
+        var veggies = Flux.just("Tomato", "Lemon");
+
+        return fruits.zipWith(veggies, (first, second) -> first + second).log();
+    }
+
+    // Different type of reactive type
+    // Zip -> upto 8 publishers
+    public Flux<String> fruitsFluxZipTuple() {
+        var fruits = Flux.just("Mango", "Orange");
+        var veggies = Flux.just("Tomato", "Lemon");
+        var moreVeggies = Flux.just("Potato", "Beans");
+
+        return Flux.zip(fruits, veggies, moreVeggies)
+                .map(objects -> objects.getT1() + objects.getT2() + objects.getT3());
+    }
+
+    public Mono<String> fruitsMonoZipWith() {
+        var fruits = Mono.just("Mango");
+        var veggies = Mono.just("Tomato");
+
+        return fruits.zipWith(veggies, (first, second) -> first + second).log();
+    }
 
 }
