@@ -212,11 +212,33 @@ public class FluxAndMonoServices {
                 .map(objects -> objects.getT1() + objects.getT2() + objects.getT3());
     }
 
+    // Mono ZipWIth
     public Mono<String> fruitsMonoZipWith() {
         var fruits = Mono.just("Mango");
         var veggies = Mono.just("Tomato");
 
         return fruits.zipWith(veggies, (first, second) -> first + second).log();
     }
+
+    // DoOn...
+    public Flux<String> fruitsFluxFilterDoOn(int number) {
+        return Flux.fromIterable(List.of("Mango", "Orange", "Banana"))
+                .filter(s -> s.length() > number)
+                .doOnNext(s -> System.out.println(s + " " + number))
+                .doOnSubscribe(subscription -> System.out.println("subscription " + subscription))
+                .doOnComplete(() -> System.out.println("Completed!!!"))
+                .log();
+    }
+
+    // OnErrorReturn
+    public Flux<String> fruitFluxOnErrorReturn() {
+        return Flux.just("Apple", "Mango").
+                concatWith(Flux.error(
+                        new RuntimeException("Grapes")
+                ))
+                .onErrorReturn("Grapes were skipped");
+
+    }
+
 
 }

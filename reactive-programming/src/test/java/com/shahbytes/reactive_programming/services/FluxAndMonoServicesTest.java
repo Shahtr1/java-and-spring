@@ -191,8 +191,28 @@ public class FluxAndMonoServicesTest {
     @Test
     void fruitsMonoZipWith() {
         var fruitsFlux = fluxAndMonoServices.fruitsMonoZipWith();
+
         StepVerifier.create(fruitsFlux)
                 .expectNext("MangoTomato")
+                .verifyComplete();
+    }
+
+    @Test
+    void fruitsFluxFilterDoOn() {
+        var fruitsFlux = fluxAndMonoServices.fruitsFluxFilterDoOn(5);
+
+        StepVerifier.create(fruitsFlux)
+                .expectNext("Orange", "Banana")
+                .verifyComplete();
+    }
+
+
+    @Test
+    void fruitFluxOnErrorReturn() {
+        var fruitsFlux = fluxAndMonoServices.fruitFluxOnErrorReturn();
+
+        StepVerifier.create(fruitsFlux)
+                .expectNext("Apple", "Mango", "Grapes were skipped")
                 .verifyComplete();
     }
 }
