@@ -240,5 +240,49 @@ public class FluxAndMonoServices {
 
     }
 
+    // OnErrorContinue
+    public Flux<String> fruitFluxOnErrorContinue() {
+        return Flux.just("Apple", "Mango", "Orange")
+                .map(s -> {
+                    if (s.equalsIgnoreCase("Mango"))
+                        throw new RuntimeException("Exception Occurred");
+                    return s.toUpperCase();
+                })
+                .onErrorContinue((e, f) -> {
+                    System.out.println("e = " + e);
+                    System.out.println("f = " + f);
+                });
+
+    }
+
+    // OnErrorMap
+    public Flux<String> fruitFluxOnErrorMap() {
+        return Flux.just("Apple", "Mango", "Orange")
+                .map(s -> {
+                    if (s.equalsIgnoreCase("Mango"))
+                        throw new RuntimeException("Exception Occurred");
+                    return s.toUpperCase();
+                })
+                .onErrorMap(throwable -> {
+                    System.out.println("throwable = " + throwable);
+                    return new IllegalStateException("Exception Occurred");
+                });
+
+    }
+
+    // DoOnError
+    public Flux<String> fruitFluxDoOnError() {
+        return Flux.just("Apple", "Mango", "Orange")
+                .map(s -> {
+                    if (s.equalsIgnoreCase("Mango"))
+                        throw new RuntimeException("Exception Occurred");
+                    return s.toUpperCase();
+                })
+                .doOnError(throwable -> {
+                    System.out.println("throwable = " + throwable);
+                });
+
+    }
+
 
 }
