@@ -18,9 +18,9 @@ public class AccountOperations {
 
     /**
      * This method should not be part of Account Operations
-     * Reason is accoutn operations are responsible for doing operation for account
+     * Reason is account operations are responsible for doing operation for account
      * like add account, update and get.
-     * deposit should be calles as transaction
+     * deposit should be called as transaction
      */
 
     public void deposit(int amount, int accountNumber) {

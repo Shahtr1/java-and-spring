@@ -29,4 +29,12 @@ public class Account {
         this.totalAmount = totalAmount;
     }
 
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountNumber=" + accountNumber +
+                ", firstName='" + firstName + '\'' +
+                ", totalAmount=" + totalAmount +
+                '}';
+    }
 }

@@ -13,5 +13,7 @@ public class Main {
 
         TransactionOperations transactionOperations = new TransactionOperations();
         transactionOperations.deposit(BigDecimal.valueOf(123), 123);
+
+        System.out.println("Account" + account);
     }
 }
