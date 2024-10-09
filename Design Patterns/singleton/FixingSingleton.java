@@ -1,8 +1,6 @@
-package singleton;
+package Singleton;
 
 import java.io.*;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 
 public class FixingSingleton {
     public static void main(String[] args) throws IOException, ClassNotFoundException {

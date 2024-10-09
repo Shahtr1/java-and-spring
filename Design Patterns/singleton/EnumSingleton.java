@@ -1,4 +1,4 @@
-package singleton;
+package Singleton;
 
 /*
 * ENUM's constructor gets invoked by JVM not by User
