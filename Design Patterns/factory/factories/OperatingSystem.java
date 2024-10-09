@@ -1,30 +1,23 @@
 package factory.factories;
 
 public abstract class OperatingSystem {
-    private String version;
-    private String architecture;
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public String getArchitecture() {
-        return architecture;
-    }
-
-    public void setArchitecture(String architecture) {
-        this.architecture = architecture;
-    }
+    private final String version;
+    private final String architecture;
 
     public OperatingSystem(String version, String architecture) {
         this.version = version;
         this.architecture = architecture;
     }
 
+    public String getVersion() {
+        return version;
+    }
+
+    public String getArchitecture() {
+        return architecture;
+    }
+
     public abstract void changeDir(String dir);
+
     public abstract void removeDir(String dir);
 }
