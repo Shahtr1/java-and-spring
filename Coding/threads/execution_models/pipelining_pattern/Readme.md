@@ -1,0 +1,3 @@
+- **Description**: Tasks are split into multiple stages, where each stage processes data and passes it to the next. Each stage runs in its own thread.
+- **Problem Solved**: Increases throughput by parallelizing different stages of a task.
+- **Use Case**: Image processing pipelines, ETL (Extract, Transform, Load) processes.

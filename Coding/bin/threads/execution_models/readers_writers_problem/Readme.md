@@ -1,0 +1,5 @@
+- **Description**: In scenarios where multiple threads read from a shared resource and others write to it, this model prioritizes access control:
+  - **Readers** can access the resource simultaneously.
+  - **Writers** require exclusive access.
+- **Problem Solved**: Prevents data corruption when multiple threads read and write to the same resource.
+- **Use Case**: Database systems, caching layers, configuration management.

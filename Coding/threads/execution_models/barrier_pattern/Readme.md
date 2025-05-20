@@ -1,0 +1,3 @@
+- **Description**: Ensures that multiple threads reach a common point (barrier) before any of them proceed further. Useful for coordinating multiple threads to complete tasks in phases.
+- **Problem Solved**: Synchronizes threads at specific checkpoints to ensure they all proceed together.
+- **Use Case**: Parallel algorithms, simulations, or collaborative work.

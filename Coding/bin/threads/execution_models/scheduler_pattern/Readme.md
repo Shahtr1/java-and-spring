@@ -1,0 +1,3 @@
+- **Description**: Manages how and when threads are scheduled to run, usually based on priorities, deadlines, or fairness policies.
+- **Problem Solved**: Ensures optimal utilization of CPU and system resources.
+- **Use Case**: Task scheduling, periodic data backups, automated reports.

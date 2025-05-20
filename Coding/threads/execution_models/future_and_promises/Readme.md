@@ -1,0 +1,3 @@
+- **Description**: Allows a thread to perform asynchronous computations and retrieve results in the future once they are available.
+- **Problem Solved**: Simplifies handling asynchronous operations and callbacks.
+- **Use Case**: Asynchronous I/O, parallel computation, non-blocking HTTP requests.

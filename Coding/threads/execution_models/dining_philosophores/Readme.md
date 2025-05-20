@@ -1,0 +1,3 @@
+- **Description**: Models a scenario where multiple threads (philosophers) compete for shared resources (forks) to perform an action (eating). It’s a metaphor for avoiding deadlock and starvation in resource allocation.
+- **Problem Solved**: Prevents deadlock and ensures fairness among threads.
+- **Use Case**: Resource allocation in distributed systems, avoiding circular waits.

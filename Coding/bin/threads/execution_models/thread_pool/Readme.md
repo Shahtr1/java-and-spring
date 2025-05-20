@@ -1,0 +1,3 @@
+- **Description**: A pool of reusable worker threads that execute tasks submitted by producers. This model reduces the overhead of thread creation and destruction.
+- **Problem Solved**: Manages thread lifecycle efficiently and prevents resource exhaustion.
+- **Use Case**: Web servers, database connection pools, parallel data processing.
