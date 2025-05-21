@@ -1,4 +1,4 @@
-package src.streams.optionals;
+package streams.optionals;
 
 import java.util.Arrays;
 import java.util.Comparator;

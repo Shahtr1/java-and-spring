@@ -1,4 +1,4 @@
-package src.streams.parallelStreams;
+package streams.parallel_streams;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package src.streams;
+package streams;
 
 import java.util.function.BinaryOperator;
 import java.util.stream.Stream;
