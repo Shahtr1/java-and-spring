@@ -4,60 +4,48 @@ import java.util.concurrent.CountDownLatch;
 
 public class Main {
 
-    // Two CountDownLatches to control the order of execution
-    private final CountDownLatch firstLatch = new CountDownLatch(1);
-    private final CountDownLatch secondLatch = new CountDownLatch(1);
-
-    // First method: Releases the first latch after execution
-    public void first() throws InterruptedException {
-        System.out.println("first");
-        firstLatch.countDown(); // Allow second() to proceed
-    }
-
-    // Second method: Waits for first() to complete, then releases the second latch
-    public void second() throws InterruptedException {
-        firstLatch.await(); // Wait until first() is done
-        System.out.println("second");
-        secondLatch.countDown(); // Allow third() to proceed
-    }
-
-    // Third method: Waits for second() to complete
-    public void third() throws InterruptedException {
-        secondLatch.await(); // Wait until second() is done
-        System.out.println("third");
-    }
-
     public static void main(String[] args) {
-        Main main = new Main();
+        int numberOfWorkers = 3;
+        CountDownLatch latch = new CountDownLatch(numberOfWorkers);
 
-        // Create threads for each method
-        Thread threadA = new Thread(() -> {
-            try {
-                main.first();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        });
+        // Start worker threads
+        for (int i = 1; i <= numberOfWorkers; i++) {
+            new Thread(new Worker(i, latch)).start();
+        }
 
-        Thread threadB = new Thread(() -> {
-            try {
-                main.second();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        });
+        System.out.println("Main thread is waiting for workers to finish...");
 
-        Thread threadC = new Thread(() -> {
-            try {
-                main.third();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        });
+        try {
+            latch.await(); // Main thread waits here until latch count is zero
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Main thread interrupted");
+        }
 
-        // Start the threads
-        threadC.start(); // Start third() thread
-        threadB.start(); // Start second() thread
-        threadA.start(); // Start first() thread
+        System.out.println("All workers finished. Main thread continues...");
+    }
+}
+
+class Worker implements Runnable {
+    private final int workerId;
+    private final CountDownLatch latch;
+
+    public Worker(int workerId, CountDownLatch latch) {
+        this.workerId = workerId;
+        this.latch = latch;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Worker " + workerId + " started work.");
+
+        try {
+            Thread.sleep((long) (Math.random() * 2000)); // Simulate work
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        System.out.println("Worker " + workerId + " finished work.");
+        latch.countDown(); // Signal that this worker is done
     }
 }

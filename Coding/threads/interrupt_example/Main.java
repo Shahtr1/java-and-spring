@@ -20,12 +20,16 @@ public class Main {
 
         thread1.start();
 
-        // Give Thread 1 some time to start and reach the wait() call
+        // Main thread sleeps for 2 seconds to ensure thread1 has time to acquire the
+        // lock and enter wait()
         Thread.sleep(2000);
 
         // Thread 2: Interrupt thread 1 during its wait
         System.out.println("Main thread interrupts thread 1.");
         thread1.interrupt(); // Interrupting Thread 1 while it is waiting
+
+        // delay notify to let interrupt win
+        Thread.sleep(100);
 
         // Thread 2: Notify (this will have no effect, since thread 1 is interrupted)
         synchronized (lock) {
