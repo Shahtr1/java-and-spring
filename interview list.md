@@ -205,7 +205,6 @@ How do you use method references?
 
 What is the difference between map() and flatMap()?
 
-
 ✅ Topic 2: Data Structures
 
 ❓ 100 Data Structures Interview Questions
@@ -421,8 +420,8 @@ java
 Copy
 Edit
 class MinStack {
-    Stack<Integer> stack = new Stack<>();
-    Stack<Integer> minStack = new Stack<>();
+Stack<Integer> stack = new Stack<>();
+Stack<Integer> minStack = new Stack<>();
 
     public void push(int val) {
         stack.push(val);
@@ -444,8 +443,8 @@ class MinStack {
     public int getMin() {
         return minStack.peek();
     }
-}
 
+}
 
 ✅ Topic 3: Object-Oriented Design (OOD)
 Essential for Amazon SDE II Interviews
@@ -659,31 +658,30 @@ java
 Copy
 Edit
 interface Notification {
-    void send();
+void send();
 }
 
 class EmailNotification implements Notification {
-    public void send() {
-        System.out.println("Sending Email");
-    }
+public void send() {
+System.out.println("Sending Email");
+}
 }
 
 class SMSNotification implements Notification {
-    public void send() {
-        System.out.println("Sending SMS");
-    }
+public void send() {
+System.out.println("Sending SMS");
+}
 }
 
 class NotificationFactory {
-    public static Notification create(String type) {
-        return switch (type) {
-            case "EMAIL" -> new EmailNotification();
-            case "SMS" -> new SMSNotification();
-            default -> throw new IllegalArgumentException("Unknown type");
-        };
-    }
+public static Notification create(String type) {
+return switch (type) {
+case "EMAIL" -> new EmailNotification();
+case "SMS" -> new SMSNotification();
+default -> throw new IllegalArgumentException("Unknown type");
+};
 }
-
+}
 
 ✅ Topic 4: Distributed Computing
 
@@ -898,12 +896,12 @@ css
 Copy
 Edit
 Client → API Gateway → Order Service
-                          ↓
-                        Kafka
-                    ↙         ↘
-       Payment Service     Inventory Service
-             ↓                  ↓
-     Kafka (Order Completed) → Notification Service
+↓
+Kafka
+↙ ↘
+Payment Service Inventory Service
+↓ ↓
+Kafka (Order Completed) → Notification Service
 
 ✅ Topic 5: Operating Systems
 
@@ -1118,25 +1116,27 @@ java
 Copy
 Edit
 class A {
-    synchronized void methodA(B b) {
-        System.out.println("Thread1: Holding A and waiting for B");
-        b.last();
-    }
+synchronized void methodA(B b) {
+System.out.println("Thread1: Holding A and waiting for B");
+b.last();
+}
 
     synchronized void last() {
         System.out.println("Inside A.last()");
     }
+
 }
 
 class B {
-    synchronized void methodB(A a) {
-        System.out.println("Thread2: Holding B and waiting for A");
-        a.last();
-    }
+synchronized void methodB(A a) {
+System.out.println("Thread2: Holding B and waiting for A");
+a.last();
+}
 
     synchronized void last() {
         System.out.println("Inside B.last()");
     }
+
 }
 
 ✅ Topic 6: Algorithms
@@ -1356,9 +1356,9 @@ java
 Copy
 Edit
 public int lengthOfLongestSubstring(String s) {
-    Set<Character> set = new HashSet<>();
-    int left = 0, right = 0, max = 0;
-    
+Set<Character> set = new HashSet<>();
+int left = 0, right = 0, max = 0;
+
     while (right < s.length()) {
         if (!set.contains(s.charAt(right))) {
             set.add(s.charAt(right++));
@@ -1367,10 +1367,10 @@ public int lengthOfLongestSubstring(String s) {
             set.remove(s.charAt(left++));
         }
     }
-    
-    return max;
-}
 
+    return max;
+
+}
 
 ✅ Topic 7: Coding
 
@@ -1586,26 +1586,24 @@ java
 Copy
 Edit
 public <T> T retry(Supplier<T> action, int retries) {
-    for (int i = 0; i <= retries; i++) {
-        try {
-            return action.get();
-        } catch (Exception e) {
-            if (i == retries) throw e;
-            try {
-                Thread.sleep((long) Math.pow(2, i) * 100L); // exponential backoff
-            } catch (InterruptedException ie) {
-                Thread.currentThread().interrupt();
-                throw new RuntimeException("Retry interrupted");
-            }
-        }
-    }
-    throw new RuntimeException("Unreachable");
+for (int i = 0; i <= retries; i++) {
+try {
+return action.get();
+} catch (Exception e) {
+if (i == retries) throw e;
+try {
+Thread.sleep((long) Math.pow(2, i) \* 100L); // exponential backoff
+} catch (InterruptedException ie) {
+Thread.currentThread().interrupt();
+throw new RuntimeException("Retry interrupted");
 }
-
+}
+}
+throw new RuntimeException("Unreachable");
+}
 
 ✅ Topic 8: Databases
 Crucial for Designing Backend Systems at Amazon
-
 
 ❓ 100 Database Interview Questions
 📘 SQL Basics & Queries (Q1–Q25)
@@ -1820,12 +1818,11 @@ Copy
 Edit
 SELECT name, department, salary
 FROM (
-  SELECT name, department, salary,
-         ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) AS rn
-  FROM employees
+SELECT name, department, salary,
+ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) AS rn
+FROM employees
 ) AS ranked
 WHERE rn <= 3;
-
 
 ✅ Topic 9: Networking Topics
 
@@ -2039,7 +2036,7 @@ How does network partition affect distributed systems?
 arduino
 Copy
 Edit
-Client ----------------> Server      SYN
-Client <---------------- Server      SYN-ACK
-Client ----------------> Server      ACK
+Client ----------------> Server SYN
+Client <---------------- Server SYN-ACK
+Client ----------------> Server ACK
 Connection Established
